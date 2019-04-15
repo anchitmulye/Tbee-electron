@@ -1,0 +1,169 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="The Explore of Tbee App.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Tbee</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../assets/css/material.min.css">
+    <link rel="stylesheet" href="../assets/css/getmdl-select.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
+  </head>
+  <body onload="getTrending()">
+
+<!--Basic Container of the app -->
+
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+
+      <header class="demo-header mdl-layout__header mdl-color--grey-900 mdl-color-text--yellow-600">
+        <div class="mdl-layout__header-row">
+          <span id="" class="mdl-layout-title">Trending</span>
+          <div class="mdl-layout-spacer"></div>
+          
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+            <i class="material-icons">account_circle</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+            <li id="signBtn" class="mdl-menu__item">Login</li>
+            <li id="signoutBtn" class="mdl-menu__item">Log out</li>
+          </ul>
+        </div>
+      </header>
+
+<!--Side Navigation Pane-->
+
+      <div class="demo-drawer mdl-layout__drawer mdl-color--black mdl-color-text--yellow-600">
+        <header >
+          <img src="../assets/images/logo.png" >
+        </header>
+
+        <nav class="demo-navigation mdl-navigation mdl-color--grey-900">
+          
+          <a class="mdl-navigation__link mdl-color-text--yellow-600" href="home.html"><i class="mdl-color-text--yellow-600 material-icons" role="presentation">home</i>Home</a>
+          <a class="mdl-navigation__link mdl-color-text--yellow-600" href="explore.html"><i class="mdl-color-text--yellow-600 material-icons" role="presentation">explore</i>Explore</a>
+          <a class="mdl-navigation__link mdl-color-text--yellow-600" href="discover.html"><i class="mdl-color-text--yellow-600 material-icons" role="presentation">find_in_page</i>Discover</a>
+          <a class="mdl-navigation__link mdl-color-text--yellow-600" href="trending.html"><i class="mdl-color-text--yellow-600 material-icons" role="presentation">trending_up</i>Trending</a>
+          <a class="mdl-navigation__link mdl-color-text--yellow-600" href="history.html"><i class="mdl-color-text--yellow-600 material-icons" role="presentation">history</i>History</a>
+          <a class="mdl-navigation__link mdl-color-text--yellow-600" href="recommend.html"><i class="mdl-color-text--yellow-600 material-icons" role="presentation">favorite</i>Recommend</a>
+          <a class="mdl-navigation__link mdl-color-text--yellow-600" href="user.html"><i class="mdl-color-text--yellow-600 material-icons" role="presentation">account_circle</i>User</a>
+          
+          
+        </nav>
+      </div>
+    
+
+<!--The main Section of the page-->
+
+	    <main class="mdl-layout__content mdl-color--black">
+	      <div class="mdl-grid demo-content">
+	      	<div class="demo-charts mdl-color--grey-900 mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+	      		<div class="container">
+	      			<div class="row">
+	      			<div class="col">
+	      				<h6 class="mdl-color-text--yellow-600">Media</h6>
+			      		 <div class="form-group mdl-color--black">
+						  <label for="sel1" class="mdl-textfield__label mdl-color-black"></label>
+						  <select onchange="getTrending()" class="form-control mdl-color-black" id="sel1">
+						    <option  class=" mdl-color-text--black-900">All</option>
+						    <option  class=" mdl-color-text--black-900">Movie</option>
+						    <option  class=" mdl-color-text--black-900">TV</option>
+						  </select>
+						</div> 
+
+					</div>
+					<div class="col">
+
+			      		<h6 class="mdl-color-text--yellow-600">Time</h6>
+			      		 <div class="form-group">
+						  <label for="sel2" class="mdl-textfield__label mdl-color-text--yellow-600"></label>
+						  <select onchange="getTrending()" class="form-control" id="sel2">
+						    <option>Day</option>
+						    <option>Week</option>
+						  </select>
+						</div>
+					</div>
+					</div>
+				</div>
+
+	      	</div>
+
+	      	<div class="demo-charts mdl-color--grey-900 mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+
+	      		<li class="demo-chart mdl-cell--0-col mdl-cell--0-col">
+	              <a href="#"><img onclick="getDetail(id)" id="tr_1" class="image" src="" width="120" height="160" /> </a>
+	            </li>
+	            <li class="demo-chart mdl-cell--0-col mdl-cell--0-col">
+	              <a href="#"><img onclick="getDetail(id)" id="tr_2" class="image" src="" width="120" height="160" /> </a>
+	            </li>
+	            <li class="demo-chart mdl-cell--0-col">
+	              <a href="#"><img onclick="getDetail(id)" id="tr_3" class="image" src="" width="120" height="160" /> </a>
+	            </li>
+	            <li class="demo-chart mdl-cell--0-col">
+	              <a href="#"><img onclick="getDetail(id)" id="tr_4" class="image" src="" width="120" height="160" /> </a>
+	            </li>
+	            <li class="demo-chart mdl-cell--0-col">
+	              <a href="#"><img onclick="getDetail(id)" id="tr_5" class="image" src="" width="120" height="160" /> </a>
+	            </li>
+	            <li class="demo-chart mdl-cell--0-col">
+	              <a href="#"><img onclick="getDetail(id)" id="tr_6" class="image" src="" width="120" height="160" /> </a>
+	            </li>
+	            <li class="demo-chart mdl-cell--0-col">
+	              <a href="#"><img onclick="getDetail(id)" id="tr_7" class="image" src="" width="120" height="160" /> </a>
+	            </li>
+
+	      	</div>
+
+	      	<div class="demo-charts mdl-color--grey-900 mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+
+	      		<li class="demo-chart mdl-cell--0-col mdl-cell--0-col">
+	              <a href="#"><img onclick="getDetail(id)" id="tr_8" class="image" src="" width="120" height="160" /> </a>
+	            </li>
+	            <li class="demo-chart mdl-cell--0-col mdl-cell--0-col">
+	              <a href="#"><img onclick="getDetail(id)" id="tr_9" class="image" src="" width="120" height="160" /> </a>
+	            </li>
+	            <li class="demo-chart mdl-cell--0-col">
+	              <a href="#"><img onclick="getDetail(id)" id="tr_10" class="image" src="" width="120" height="160" /> </a>
+	            </li>
+	            <li class="demo-chart mdl-cell--0-col">
+	              <a href="#"><img onclick="getDetail(id)" id="tr_11" class="image" src="" width="120" height="160" /> </a>
+	            </li>
+	            <li class="demo-chart mdl-cell--0-col">
+	              <a href="#"><img onclick="getDetail(id)" id="tr_12" class="image" src="" width="120" height="160" /> </a>
+	            </li>
+	            <li class="demo-chart mdl-cell--0-col">
+	              <a href="#"><img onclick="getDetail(id)" id="tr_13" class="image" src="" width="120" height="160" /> </a>
+	            </li>
+	            <li class="demo-chart mdl-cell--0-col">
+	              <a href="#"><img onclick="getDetail(id)" id="tr_14" class="image" src="" width="120" height="160" /> </a>
+	            </li>
+            
+	      	</div>
+          
+
+	      </div>
+	    </main>
+  	</div>
+
+    <script src="../assets/css/material.min.js"></script>
+    <script src="../assets/css/getmdl-select.min.js"></script>
+    <script src="home.js"></script>
+    <script src="trending.js"></script>
+  </body>
+</html>
